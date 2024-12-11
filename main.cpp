@@ -5,12 +5,15 @@
 #include <QMainWindow>
 #include <QTableWidget>
 #include <QTableWidgetItem>
+#include <QLabel>
 #include <widget.h>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     QMainWindow w;
+
+    w.resize(522, 500);
 
     // Crée un QTableWidget pour afficher les résultats
     QTableWidget *tableWidget = new QTableWidget(&w);
@@ -37,7 +40,7 @@ int main(int argc, char *argv[])
         {
             QString prenom = query.value(1).toString();
             QString club = query.value(2).toString();
-            QString note = query.value(3).toString();
+            int note = query.value(3).toInt();  // On suppose que les notes sont des entiers
             // qDebug() << prenom << club << note;
 
             // Ajouter une nouvelle ligne dans le tableau
@@ -46,8 +49,15 @@ int main(int argc, char *argv[])
             // Ajouter les données dans la ligne et les colonnes
             tableWidget->setItem(row, 0, new QTableWidgetItem(prenom));
             tableWidget->setItem(row, 1, new QTableWidgetItem(club));
-            tableWidget->setItem(row, 2, new QTableWidgetItem(note));
 
+            // Créer un widget QLabel pour afficher les étoiles
+            QLabel *starsLabel = new QLabel(&w);
+            QString stars = QString("★").repeated(note);  // Crée une chaîne d'étoiles basée sur la note
+            starsLabel->setText(stars);
+            starsLabel->setAlignment(Qt::AlignCenter);
+
+            // Ajouter le QLabel dans la cellule du tableau
+            tableWidget->setCellWidget(row, 2, starsLabel);
 
             row++;  // Passer à la ligne suivante
         }
