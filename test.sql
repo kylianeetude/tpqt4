@@ -38,7 +38,7 @@ CREATE TABLE `jeu` (
 
 LOCK TABLES `jeu` WRITE;
 /*!40000 ALTER TABLE `jeu` DISABLE KEYS */;
-INSERT INTO `jeu` VALUES (1,'Ronaldo','Madrid','5'),(2,'Grizou','barca','4');
+INSERT INTO `jeu` VALUES (1,'Ronaldo','Madrid','★★★★★'),(2,'Grizou','barca','★★★★☆');
 /*!40000 ALTER TABLE `jeu` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-12-17  8:08:49
+-- Dump completed on 2024-12-18 16:33:46
